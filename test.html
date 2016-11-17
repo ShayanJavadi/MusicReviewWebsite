@@ -1,0 +1,28 @@
+
+
+</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p id="roomName">happy  </p>
+  </body>
+</html>
+
+<script type="text/javascript">
+
+function logExists(){
+
+  var file = "test.php";
+  var http = new XMLHttpRequest();
+  http.open('HEAD', file, true);
+  http.send();
+  if ( http.status=404) {
+    alert('works');
+  }
+}
+logExists();
+</script>

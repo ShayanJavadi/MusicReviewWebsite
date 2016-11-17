@@ -1,0 +1,75 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row content">
+      <div class="col-md-4">
+        <img src="{{ Album.album_art }}" alt="" height="300"/>
+      </div>
+      <div class="col-md-4">
+        <h1>i am update</h1>
+          <h1><strong><a class="artistLink"href="artist?artist={{ Artist.artist_name}}">{{ Artist.artist_name}}</a></strong> - {{ Album.album_name|capitalize }}</h1>
+          <h2></h2>
+          <br>
+          <h4> <strong>Rating:</strong> {{ Album.rating }}/10</h4>
+          <h4> <strong>Released:</strong> {{ Album.release_date }}</h4>
+          <h4> <strong>Genre</strong>: {{ Album.genre }}</h4></h4>
+      </div>
+      <div class="col-md-4">
+        <div class="ratingBox">
+          <h1><strong>{{ Review.rating }}/10</strong></h1>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <br>
+    </div>
+    <div class="row content">
+      <div class="col-sm-8">
+        <h1><strong>Review</strong></h1>
+        <hr>
+        <form class="" action="{{ path_for('updateReview')}}" method="post">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="{{ path_for('review')}}?artist={{ Artist.artist_name }}&album={{ Album.album_name }}"><button class="btn btn-danger" type="button" name="button">Cancel</button></a>
+          <div class="form-group{{ errors.rating ? ' has-error' : ''}}">
+            <label for="rating">Album rating</label>
+            <br>
+            <!-- "old" array holds old inputs -->
+            <select  name="rating" class="selectpicker">
+              <option selected="selected">{{ Review.rating}}<option>
+              {% for i in range(0,10, 0.5) %}
+                <option value="{{ i }}">{{ i }}</option>
+              {% endfor %}
+            </select><span>/10</span>
+          </div>
+          <div class="form-group{{ errors.spotify_iframe ? ' has-error' : ''}}">
+            <label for="spotify_iframe">Embedded spotify link</label>
+            <!-- "old" array holds old inputs -->
+            <input type="text" name="spotify_iframe" id="spotify_iframe" class="form-control" value="{{ Review.spotify_iframe}}">
+            <!-- they will be shown here -->
+            {% if errors.spotify_iframe %}
+            <span class="help-block">{{ errors.spotify_iframe | first }}</span>
+            {% endif %}
+          </div>
+          <div class="form-group{{ errors.text ? ' has-error' : ''}}">
+            <!-- "old" array holds old inputs -->
+            <textarea name="text" id="text" class="form-control"rows="45" cols="40" value="{{ Review.text }}">{{ Review.text}}</textarea>
+            <!-- they will be shown here -->
+            {% if errors.text %}
+            <span class="help-block">{{ errors.text | first }}</span>
+            {% endif %}
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{{ path_for('review')}}?artist={{ Artist.artist_name }}&album={{ Album.album_name }}"><button class="btn btn-danger" type="button" name="button">Cancel</button></a>
+            <input type="hidden" name="artist_name" value="{{ Artist.artist_name}}">
+            <input type="hidden" name="album_name" value="{{ Album.album_name }}">
+            {{ csrf.field | raw }}
+        </form>
+      </div>
+      <div class="col-sm-4 spotifyIframe" id="spotifyIframe">
+        <iframe src="{{ Review.spotify_iframe }}" width="300" height="400" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+    </div>
+  </div>
+  <script src="{{ base_url() }}/js/spotifyIframe.js"></script>
+{% endblock %}

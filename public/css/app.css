@@ -1,0 +1,317 @@
+body{
+  padding-top: 40px;
+  margin-bottom: 20px;
+
+}
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+}
+a{
+  color: black;
+}
+.black{
+  color: black;
+}
+
+div{
+  word-wrap: break-word;
+
+}
+
+
+.content:hover {
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	box-shadow: 0 0 52px rgba(0,0,0,0.5);
+	}
+
+#home{
+  width: 70%;
+}
+
+
+#reviewRectangles{
+
+  margin: 20px;
+  max-height: 230px;
+  min-height: 230px;
+  display: block;
+}
+#float{
+  float: left;
+}
+.homeImage{
+  height: 28%;
+}
+.newReviewsOverflow{
+  overflow:auto;
+}
+.reviewsImage{
+  max-height: 200px;
+}
+.reviewSnippets{
+
+  float: left;
+  font-size: 15px;
+}
+
+.customSearchOptions{
+  width: 10px;
+  background-color: #333333;
+  border-color: #333333;
+  border-radius: 0%;
+  color: #777777;
+}
+.customSearchGlyph{
+  color: #777777;
+}
+
+.customSearchButton{
+  border-radius: 100%;
+  height: 34px;
+  background-color: #333333;
+  border: none;
+}
+.customSearchButton:hover{
+  background-color: #444444;
+}
+.customSearchInput:focus{
+  background-color: #666666;
+  border:none;
+  outline:0;
+}
+.customSearchInput{
+  background-color: #333333;
+    border-color: #333333;
+    border: none;
+}
+.customSearchInput:focus, .customSearchOptions:focus{
+  background-color: white;
+  border-color: black;
+}
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #222222;
+    font-size: 170%;
+    border: none;
+    color: white;
+}
+.deleteButton{
+  color: black;
+  background-color: white;
+  border: none;
+  margin-right: 20px;
+}
+.editorLogin{
+  text-decoration: none;
+  color: gray;
+}
+ .editorLogin:hover{
+   text-decoration: none;
+   color: gray;
+ }
+ .editorLogin:active{
+   text-decoration: none;
+   color: gray;
+ }
+.wrapper {
+  position: static;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.homePageCarousel{
+  min-width: 50%;
+  max-width: 100%;
+  margin-bottom: 20px;
+
+}
+.navbar-custom {
+  /*background-color: #21355a;*/
+  background-color: #1b2e49;
+  border: none;
+}
+.title{
+  text-align: center;
+  font-weight: bold;
+
+}
+.artistLink{
+  color: black;
+}
+.artistLink:hover{
+  color: black;
+}
+.contactLink{
+  color: gray;
+}
+.contactLink:hover{
+  color: white;
+}
+.navbar-inverse .navbar-nav  > li > a {
+  color : gray;
+}
+.content{
+  background-color: white;
+  border: 2px solid black;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+  box-shadow: 1px 1px 2px #888888;
+}
+.artistImage{
+  width: auto;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+display: block;
+height: auto;
+max-width: 100%;
+line-height: 1;
+width: 100%;
+}
+
+.searchBar{
+  max-width: 280px;
+  margin-right: 10px;
+}
+.newReview{
+  max-width: 290px;
+  max-height: 290px;
+  height: 32%;
+  box-shadow: 2px 2px 2px #888888;
+  margin-bottom: 50px;
+
+}
+.spotifyIframe{
+    position: relative;
+    padding-top:90px;
+    margin-left: auto;
+    top: 0;
+}
+
+.smallAlbumSquare{
+  max-width: 300px;
+  min-width: 110px;
+  width : 100%;
+  height: auto;
+}
+
+.ratingBox{
+
+  border-radius: 50%;
+  padding: 80px 0;
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  float: left;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 5px #888888;
+}
+.ratingBoxSmall{
+  font-size: 15px;
+  padding: 26px 0;
+  margin-top: 10px;
+  padding-right: 61px;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+
+  display: block;
+}
+
+.left-spacer{
+    padding-left:10px;
+}
+.top-spacer{
+    padding-top:30px;
+}
+
+.releaseDate{
+  padding: 40px 0;
+  padding-right: 38px;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+
+  display: block;
+}
+
+.white{
+  background-color: white;
+}
+
+hr{
+  color: #f00;
+  background-color: black;
+  height: 1px;
+  width: 100%;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+body{
+  padding-top: 80px;
+  padding-bottom: 50px;
+  background-color: #f8ecbc;
+  font-family: 'Oswald', sans-serif;
+}
+
+p{
+  font-family: 'Tinos-bold', serif;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 35px;
+  font-size: 20px;
+}
+
+.overflow{
+    overflow-y: scroll;
+    height: 250px;
+}
+
+.middle{
+  text-align: center;
+}
+
+.lineAuthor{
+  color: red;
+}
+#sendButton{
+  background-color: white;
+  color: black;
+  border: black;
+  width: 30%;
+  height: 90px;
+  float: left;
+}
+
+#sendButton:hover{
+  color: white;
+  background-color: black;
+  outline: none;
+}
+#chatinput{
+  float: left;
+  width: 70%;
+}
+textarea:focus{
+  outline: none;
+}
+
+#middleOfPage{
+  min-height: 800px;
+}

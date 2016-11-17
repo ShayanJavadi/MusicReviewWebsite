@@ -1,0 +1,27 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+  <div class="container content" id="reviews">
+    <h1>Recent Reviews</h1><hr>
+    <div class="row float " >
+        {% for i in 0..reviewCount %}
+        <div class="row black">
+          <div class="col-lg-12" >
+            <a class="black" href="{{ path_for('review')}}?artist={{ newArtists[i] }}&album={{ newAlbumNames[i] }}">
+              <div class="row content newReviewsOverflow" id="reviewRectangles">
+                  <div class="col-sm-3 float" >
+                    <img class="img-responsive reviewsImage" height="200px"src="{{ newReviewArts[i] }}" alt="" />
+                  </div>
+                  <div class="col-sm-9 float">
+                    <h3>{{ newArtists[i] }} - {{ newAlbumNames[i] }} </h3>
+                    <span class="reviewSnippets">{{ reviewSnippets[i]}} ...<span>
+                  </div>
+                </div>
+              </a>
+           </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+  </div>
+{% endblock %}

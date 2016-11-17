@@ -1,0 +1,106 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+  <div class="container content" id="home">
+    <h1>Reviews</h1>
+    <hr>
+    <div class="row">
+      <div class="col-sm-6">
+        <div  class="carousel slide " id="mySlider" data-ride="carousel">
+          <!-- indicators dot nav -->
+          <ol class="carousel-indicators">
+            <li data-target="#mySlider" data-slide-to="0" class="active"></li>
+            <li data-target="#mySlider" data-slide-to="1"></li>
+            <li data-target="#mySlider" data-slide-to="2"></li>
+          </ol>
+          <!-- wrapper for slides-->
+
+          <div class="carousel-inner homePageCarousel" role="listbox">
+            <div class="item active ">
+
+              <a href="{{ path_for('review')}}?artist={{ newArtists.0 }}&album={{ newAlbumNames.0 }}"><img  src="{{ newReviewArts.0 }}" alt="" /></a>
+
+            </div>
+            <div class="item ">
+              <a href="{{ path_for('review')}}?artist={{ newArtists.1 }}&album={{ newAlbumNames.1 }}"><img  src="{{ newReviewArts.1 }}" alt="" /></a>
+              
+            </div>
+            <div class="item ">
+              <a href="{{ path_for('review')}}?artist={{ newArtists.2 }}&album={{ newAlbumNames.2 }}"><img  src="{{ newReviewArts.2 }}" alt="" /></a>
+            </div>
+          </div>
+          <!-- next and prev buttons -->
+          <a class="left carousel-control" href="#mySlider" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aira-hidden="true"></span></a>
+          <a class="right carousel-control" href="#mySlider" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aira-hidden="true"></span></a>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <ul class="caption-style-1">
+    			<li class="newReview">
+    				<img class="img-responsive smallAlbumSquare"  src="{{ newReviewArts.3 }}" alt="">
+    				<div class="caption">
+              <a href="{{ path_for('review')}}?artist={{ newArtists.3 }}&album={{ newAlbumNames.3 }}">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+                <h1>{{ newArtists.3 }}</h1>
+                <p>{{ newAlbumNames.3}}</p>
+    					</div>
+              </a>
+    				</div>
+    			</li>
+          <li class="newReview">
+    				<img class="img-responsive smallAlbumSquare" src="{{ newReviewArts.4 }}" alt="">
+    				<div class="caption">
+              <a href="{{ path_for('review')}}?artist={{ newArtists.4 }}&album={{ newAlbumNames.4 }}">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+                <h1>{{ newArtists.4 }}</h1>
+                <p>{{ newAlbumNames.4 }}</p>
+    					</div>
+              </a>
+    				</div>
+    			</li>
+      </div>
+      <div class="col-sm-3">
+        <ul class="caption-style-1">
+    			<li class="newReview">
+    				<img class="img-responsive smallAlbumSquare"  src="{{ newReviewArts.5 }}" alt="">
+    				<div class="caption">
+              <a href="{{ path_for('review')}}?artist={{ newArtists.5 }}&album={{ newAlbumNames.5 }}">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+      						<h1>{{ newArtists.5 }}</h1>
+      						<p>{{ newAlbumNames.5}}</p>
+    					</div>
+              </a>
+    				</div>
+    			</li>
+          <li class="newReview">
+    				<img class="img-responsive smallAlbumSquare"  src="{{ newReviewArts.6 }}" alt="">
+    				<div class="caption">
+              <a href="{{ path_for('review')}}?artist={{ newArtists.6 }}&album={{ newAlbumNames.6 }}">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+                <h1>{{ newArtists.6 }}</h1>
+                <p>{{ newAlbumNames.6}}</p>
+    					</div>
+              </a>
+    				</div>
+    			</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <h1 class="middle">Some stuff</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <br>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <br>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <br>
+    <div class="container">
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+<div class="container">
+  <div class="row content">
+    <div class="col-sm-6">
+      <form action="{{ path_for('updateArtist')}}" method="post" enctype="multipart/form-data">
+        <!-- if there are any errors in each catogery -->
+        <div class="form-group{{ errors.artist_name ? ' has-error' : ''}}">
+          <label for="email">Artist Name</label>
+          <!-- "old" array holds old inputs -->
+          <input type="hidden" name="id" id="id" class="form-control" value="{{ Artist.id}}">
+          <input type="text" name="artist_name" id="artist_name" class="form-control" value="{{ Artist.artist_name}}">
+          <!-- they will be shown here -->
+          {% if errors.artist_name %}
+          <span class="help-block">{{ errors.artist_name | first }}</span>
+          {% endif %}
+        </div>
+        <div class="form-group{{ errors.description ? ' has-error' : ''}}">
+          <label for="email">Description</label>
+          <!-- "old" array holds old inputs -->
+          <textarea name="description" id="description" class="form-control"rows="8" cols="40" value="{{ Artist.description}}">{{ Artist.description}}</textarea>
+          <!-- they will be shown here -->
+          {% if errors.description %}
+          <span class="help-block">{{ errors.description | first }}</span>
+          {% endif %}
+        </div>
+        <div class="form-group{{ errors.artist_picture ? ' has-error' : ''}}">
+          <label for="email">Artist Picture Link</label>
+          <!-- "old" array holds old inputs -->
+          <input type="file" name="artist_picture" id="artist_picture" class="form-control" value="{{ Artist.artist_picture}}">
+          <!-- they will be shown here -->
+          {% if errors.artist_picture %}
+          <span class="help-block">{{ errors.artist_picture | first }}</span>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- the hidden csrf field -->
+        {{ csrf.field | raw }}
+        </form>
+
+      </p>
+      <a href="{{ path_for('artist.artist')}}?artist={{ Artist.artist_name }}"><button class="btn btn-danger" type="button" name="button">Cancel</button></a>
+    </div>
+    <div class="col-sm-6">
+      <img class="artistImage top-spacer" height="350"  src="{{ Artist.artist_picture }}" alt="" />
+    </div>
+  <div class="container">
+    <div class="row ">
+      <div class="col-sm-12">
+        <h2>Albums</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Album</th>
+          <th>Release date</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+            {% for Albums in ArtistAlbums %}
+            <tr>
+              <td> <a href="{{ path_for('deleteAlbum')}}?artist={{ Artist.artist_name }}&album={{ Albums.album_name }}" ><button type="button" name="button" class="deleteButton"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a> <img src="{{ Albums.album_art }}" alt="" height="100px"/><span class="left-spacer">{{ Albums.album_name|capitalize }}</span></td>
+              <td><span class="releaseDate">{{ Albums.release_date }}</span></td>
+              <td><a href="{{ path_for('review')}}?artist={{ Artist.artist_name }}&album={{ Albums.album_name }}"> <h4><stong><span class="ratingBoxSmall">{{ Albums.rating }}/10</span></strong></h4></td>
+            </tr>
+            {% endfor %}
+
+
+          </tbody>
+        </table>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

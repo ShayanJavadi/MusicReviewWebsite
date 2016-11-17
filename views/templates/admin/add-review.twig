@@ -1,0 +1,61 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading middle">Add New Review</div>
+        <div class="panel-body">
+          <form action="{{ path_for('newReview')}}" method="post" autocomplete="off">
+            <!-- if there are any errors in each catogery -->
+            <div class="form-group{{ errors.id ? ' has-error' : ''}}">
+              <label for="album_name">Album name</label>
+              <br>
+              <select  name="id" class="selectpicker">
+                {% for Album in Albums %}
+                  <option value="{{ Album.id }}">{{ Album.album_name }}</option>
+                {% endfor %}
+              </select>
+              <!-- they will be shown here -->
+              {% if errors.id %}
+              <span class="help-block">{{ errors.id | first }}</span>
+              {% endif %}
+            </div>
+
+            <div class="form-group{{ errors.text ? ' has-error' : ''}}">
+              <label for="text">Review</label>
+              <!-- "old" array holds old inputs -->
+                <textarea name="text" id="text" class="form-control"rows="8" cols="40" value="{{ old.text}}">{{ old.text}}</textarea>
+              <!-- they will be shown here -->
+              {% if errors.text %}
+              <span class="help-block">{{ errors.text | first }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group{{ errors.rating ? ' has-error' : ''}}">
+              <label for="rating">Album rating</label>
+              <br>
+              <!-- "old" array holds old inputs -->
+              <select  name="rating" class="selectpicker">
+                {% for i in range(0,10, 0.5) %}
+                  <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+              </select><span>/10</span>
+            </div>
+            <div class="form-group{{ errors.spotify_iframe ? ' has-error' : ''}}">
+              <label for="spotify_iframe">Embedded spotify link</label>
+              <!-- "old" array holds old inputs -->
+              <input type="text" name="spotify_iframe" id="spotify_iframe" class="form-control" value="{{ old.spotify_iframe}}">
+              <!-- they will be shown here -->
+              {% if errors.spotify_iframe %}
+              <span class="help-block">{{ errors.spotify_iframe | first }}</span>
+              {% endif %}
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            <!-- the hidden csrf field -->
+            {{ csrf.field | raw }}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading middle">Add New Artist</div>
+        <div class="panel-body">
+          <!-- takes us to the post path for signup -->
+          <form action="{{ path_for('newArtist')}}" method="post" autocomplete="off" enctype="multipart/form-data">
+            <!-- if there are any errors in each catogery -->
+            <div class="form-group{{ errors.artist_name ? ' has-error' : ''}}">
+              <label for="email">Artist Name</label>
+              <!-- "old" array holds old inputs -->
+              <input type="text" name="artist_name" id="artist_name" class="form-control" value="{{ old.artist_name}}">
+              <!-- they will be shown here -->
+              {% if errors.artist_name %}
+              <span class="help-block">{{ errors.artist_name | first }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group{{ errors.description ? ' has-error' : ''}}">
+              <label for="email">Description</label>
+              <!-- "old" array holds old inputs -->
+              <textarea name="description" id="description" class="form-control"rows="8" cols="40" value="{{ old.description}}">{{ old.description}}</textarea>
+              <!-- they will be shown here -->
+              {% if errors.description %}
+              <span class="help-block">{{ errors.description | first }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group{{ errors.artist_picture ? ' has-error' : ''}}">
+              <label for="email">Artist Picture Link</label>
+              <!-- "old" array holds old inputs -->
+              <input type="file" name="artist_picture" id="artist_picture" class="form-control">
+
+              <!-- they will be shown here -->
+              {% if errors.artist_picture %}
+              <span class="help-block">{{ errors.artist_picture | first }}</span>
+              {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+            <!-- the hidden csrf field -->
+            {{ csrf.field | raw }}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

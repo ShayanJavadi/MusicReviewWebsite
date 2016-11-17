@@ -1,0 +1,58 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+<div class="container">
+  <div class="row content">
+    <div class="col-sm-6">
+      <h1>{{ Artist.artist_name }}</h1>
+
+        {% if auth.isLoggedIn %}
+          <a href="{{ path_for('deleteArtist')}}?artist={{ Artist.artist_name }}"><button type="button" name="button" class="btn btn-danger btn-lg">Delete artist</button></a>
+          <a href="{{ path_for('updateArtist')}}?artist={{ Artist.artist_name }}"><button type="button" name="button" class="btn btn-default btn-lg">Edit artist</button></a>
+        {% endif %}
+
+      <p>
+        {{ Artist.description }}
+      </p>
+    </div>
+    <div class="col-sm-6">
+      <img class="artistImage top-spacer" height="350"  src="{{ Artist.artist_picture }}" alt="" />
+    </div>
+  <div class="container">
+    <div class="row ">
+      <div class="col-sm-12">
+        <h2>Albums</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Album</th>
+          <th>Release date</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for Albums in ArtistAlbums %}
+          <tr>
+            <td><img src="{{ Albums.album_art }}" alt="{{ Artist.artist_name }} - {{ Albums.album_name }}" height="100px"/><span class="left-spacer">{{ Albums.album_name|capitalize }}</span></td>
+            <td> <span class="releaseDate">{{ Albums.release_date }}</span></td>
+            <td><a class="black" href="{{ path_for('review')}}?artist={{ Artist.artist_name }}&album={{ Albums.album_name }}"> <h4><span class="ratingBoxSmall">{{ Albums.rating }}/10</span></h4> </a></td>
+          </tr>
+        {% endfor %}
+          </tbody>
+        </table>
+        </div>
+        </div>
+        {% if auth.isLoggedIn %}
+          <a href="{{ path_for('newAlbum')}}"><button type="button" name="button" class="btn btn-default btn-lg">Add new album </button></a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

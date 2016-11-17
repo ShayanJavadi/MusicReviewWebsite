@@ -1,0 +1,79 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading middle">Add New Album</div>
+        <div class="panel-body">
+          <form action="{{ path_for('newAlbum')}}" method="post" autocomplete="off" enctype="multipart/form-data">
+            <!-- if there are any errors in each catogery -->
+            <div class="form-group{{ errors.artist_id ? ' has-error' : ''}}">
+              <label for="email">Artist name</label>
+              <!-- "old" array holds old inputs -->
+              <br>
+              <select  name="id" class="selectpicker">
+                {% for Artist in Artists %}
+                  <option value="{{ Artist.id }}">{{ Artist.artist_name }}</option>
+                {% endfor %}
+              </select>
+              <!-- they will be shown here -->
+              {% if errors.artist_id %}
+              <span class="help-block">{{ errors.artist_id | first }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group{{ errors.album_name ? ' has-error' : ''}}">
+              <label for="email">Album name</label>
+              <!-- "old" array holds old inputs -->
+              <input type="text" name="album_name" id="album_name" class="form-control" value="{{ old.album_name}}">
+              <!-- they will be shown here -->
+              {% if errors.album_name %}
+              <span class="help-block">{{ errors.album_name | first }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group{{ errors.genre ? ' has-error' : ''}}">
+              <label for="email">Genre</label>
+              <!-- "old" array holds old inputs -->
+              <input type="text" name="genre" id="genre" class="form-control" value="{{ old.genre}}">
+              <!-- they will be shown here -->
+              {% if errors.genre %}
+              <span class="help-block">{{ errors.genre | first }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group{{ errors.rating ? ' has-error' : ''}}">
+              <label for="email">Album rating</label>
+              <br>
+              <!-- "old" array holds old inputs -->
+              <select  name="rating" class="selectpicker">
+                {% for i in range(0,10, 0.5) %}
+                  <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+              </select><span>/10</span>
+            </div>
+            <div class="form-group{{ errors.album_art ? ' has-error' : ''}}">
+              <label for="email">Album art</label>
+              <!-- "old" array holds old inputs -->
+              <input type="file" name="album_art" id="album_art" class="form-control">
+              <!-- they will be shown here -->
+              {% if errors.album_art %}
+              <span class="help-block">{{ errors.album_art | first }}</span>
+              {% endif %}
+            </div>
+            <div class="form-group{{ errors.release_date ? ' has-error' : ''}}">
+              <label for="email">Release date</label>
+              <!-- "old" array holds old inputs -->
+              <input type="date" name="release_date" id="release_date" class="form-control" value="{{ old.release_date}}">
+              <!-- errors will be shown here -->
+              {% if errors.release_date %}
+              <span class="help-block">{{ errors.release_date | first }}</span>
+              {% endif %}
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            <!-- the hidden csrf field -->
+            {{ csrf.field | raw }}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
