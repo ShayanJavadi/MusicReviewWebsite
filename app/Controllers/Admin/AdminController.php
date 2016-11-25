@@ -17,7 +17,6 @@ class AdminController extends Controller
     unset($_SESSION['errors']);
     return $this->view->render($response, 'templates\admin\add-artist.twig');
   }
-
   public function postNewArtist($request, $response)
   {
     $validation = $this->validator->validate($request, [

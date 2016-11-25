@@ -125,12 +125,7 @@ div{
     height: 100%;
     margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
 }
-.homePageCarousel{
-  min-width: 50%;
-  max-width: 100%;
-  margin-bottom: 20px;
 
-}
 .navbar-custom {
   /*background-color: #21355a;*/
   background-color: #1b2e49;

@@ -1,12 +1,12 @@
 <div class="container">
   {% if flash.getMessage('info') %}
-    <div class="alert alert-info">
+    <div class="flash alert alert-info">
       {{ flash.getMessage('info') | first }}
     </div>
   {% endif %}
 
   {% if flash.getMessage('error') %}
-    <div class="alert alert-danger">
+    <div class="flashalert alert-danger">
       {{ flash.getMessage('error') | first }}
     </div>
   {% endif %}
